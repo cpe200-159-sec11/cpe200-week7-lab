@@ -40,7 +40,7 @@ public class BinaryCalculatorTest {
         secondOperand = new StringOperand("011");
         binaryCalculator.setFirstOperand(firstOperand);
         binaryCalculator.setSecondOperand(secondOperand);
-        assertEquals("0110", binaryCalculator.multiply());
+        assertEquals("110", binaryCalculator.multiply());
     }
 
     @Test
@@ -77,7 +77,7 @@ public class BinaryCalculatorTest {
 
     @Test
     public void addIntSimple() throws Exception {
-        firstOperand = new IntegerOperand(1);
+        firstOperand = new IntegerOperand(11);
         secondOperand = new IntegerOperand(1);
         binaryCalculator.setFirstOperand(firstOperand);
         binaryCalculator.setSecondOperand(secondOperand);
@@ -96,16 +96,16 @@ public class BinaryCalculatorTest {
     @Test
     public void multiplyIntSimple() throws Exception {
         firstOperand = new IntegerOperand(10);
-        secondOperand = new IntegerOperand(011);
+        secondOperand = new IntegerOperand(11);
         binaryCalculator.setFirstOperand(firstOperand);
         binaryCalculator.setSecondOperand(secondOperand);
-        assertEquals("0110", binaryCalculator.multiply());
+        assertEquals("110", binaryCalculator.multiply());
     }
 
     @Test
     public void divisionIntSimple() throws Exception {
-        firstOperand = new IntegerOperand(0110);
-        secondOperand = new IntegerOperand(011);
+        firstOperand = new IntegerOperand(110);
+        secondOperand = new IntegerOperand(11);
         binaryCalculator.setFirstOperand(firstOperand);
         binaryCalculator.setSecondOperand(secondOperand);
         assertEquals("10", binaryCalculator.division());
@@ -113,7 +113,7 @@ public class BinaryCalculatorTest {
 
     @Test
     public void divideByZeroIntSimple() throws Exception {
-        firstOperand = new IntegerOperand(0110);
+        firstOperand = new IntegerOperand(110);
         secondOperand = new IntegerOperand(0);
         binaryCalculator.setFirstOperand(firstOperand);
         binaryCalculator.setSecondOperand(secondOperand);
@@ -128,7 +128,7 @@ public class BinaryCalculatorTest {
     @Test
     public void powerIntSimple() throws Exception {
         firstOperand = new IntegerOperand(10);
-        secondOperand = new IntegerOperand(011);
+        secondOperand = new IntegerOperand(11);
         binaryCalculator.setFirstOperand(firstOperand);
         binaryCalculator.setSecondOperand(secondOperand);
         assertEquals("1000", binaryCalculator.power());
