@@ -77,7 +77,7 @@ public class BinaryCalculatorTest {
 
     @Test
     public void addIntSimple() throws Exception {
-        firstOperand = new IntegerOperand(11);
+        firstOperand = new IntegerOperand(1);
         secondOperand = new IntegerOperand(1);
         binaryCalculator.setFirstOperand(firstOperand);
         binaryCalculator.setSecondOperand(secondOperand);
