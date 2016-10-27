@@ -1,37 +1,25 @@
 package cpe200;
 
-public class BinaryCalculator {
-    public IOperand firstOperand;
-    public IOperand secondOperand;
+/**
+ * Created by Artpii on 10/27/16.
+ */
+public class BinaryCalculator extends BaseCalculator{
 
-    public BinaryCalculator() {
-    }
-
+    @Override
     public void setFirstOperand(IOperand operand) {
+        if(operand.getOperand().matches("[01+]")){
+            super.firstOperand = new IntegerOperand(Integer.parseInt(operand.getOperand(),2));
+        }else{
+            throw new RuntimeException("The input isn't binary format.");
+        }
     }
 
+    @Override
     public void setSecondOperand(IOperand operand) {
+        if(operand.getOperand().matches("[01+]")){
+            super.secondOperand = new IntegerOperand(Integer.parseInt(operand.getOperand(),2));
+        }else{
+            throw new RuntimeException("The input isn't binary format.");
+        }
     }
-
-    public String add() throws RuntimeException {
-        return null;
-    }
-
-    public String subtract() throws RuntimeException {
-        return null;
-    }
-
-    public String multiply() throws RuntimeException {
-        return null;
-    }
-
-    /* This method should throw an exception when divide by zero */
-    public String division() throws RuntimeException {
-        return null;
-    }
-
-    public String power() throws RuntimeException {
-        return null;
-    }
-
 }
