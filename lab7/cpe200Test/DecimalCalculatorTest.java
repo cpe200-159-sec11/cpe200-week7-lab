@@ -1,5 +1,3 @@
-package cpe200Test;
-
 import cpe200.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,14 +8,14 @@ import java.lang.reflect.Modifier;
 import static org.junit.Assert.*;
 
 
-public class BinaryCalculatorTest {
+public class DecimalCalculatorTest {
     IOperand firstOperand;
     IOperand secondOperand;
-    BinaryCalculator binaryCalculator;
+    DecimalCalculator binaryCalculator;
 
     @Before
     public void setUp() throws Exception {
-        binaryCalculator = new BinaryCalculator();
+        binaryCalculator = new DecimalCalculator();
     }
 
     @Test
@@ -580,13 +578,13 @@ public class BinaryCalculatorTest {
 
     @Test
     public void operandDirectAccess() throws Exception {
-        Field field = StringOperand.class.getDeclaredField("operand");
+        Field field = DoubleOperand.class.getDeclaredField("operand");
         assertFalse(Modifier.isPublic(field.getModifiers()));
 
-        field = BinaryCalculator.class.getDeclaredField("firstOperand");
+        field = DecimalCalculator.class.getDeclaredField("firstOperand");
         assertFalse(Modifier.isPublic(field.getModifiers()));
 
-        field = BinaryCalculator.class.getDeclaredField("secondOperand");
+        field = DecimalCalculator.class.getDeclaredField("secondOperand");
         assertFalse(Modifier.isPublic(field.getModifiers()));
     }
 
