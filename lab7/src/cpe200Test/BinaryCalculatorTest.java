@@ -251,4 +251,26 @@ public class BinaryCalculatorTest {
         binaryCalculator.setSecondOperand(secondOperand);
         assertEquals("10010000", binaryCalculator.power());
     }
+    
+    @Test
+    public void firstOperandAcceptOnlyBinary() throws Exception {
+        firstOperand = new StringOperand("fafafafafafafafa");
+        try {
+            binaryCalculator.setFirstOperand(firstOperand);
+            fail("The operation must raise an exception");
+        } catch (ArithmeticException ex) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void secondOperandAcceptOnlyBinary() throws Exception {
+        secondOperand = new StringOperand("084614000f");
+        try {
+            binaryCalculator.setSecondOperand(secondOperand);
+            fail("The operation must raise an exception");
+        } catch (ArithmeticException ex) {
+            assertTrue(true);
+        }
+    }
 }
