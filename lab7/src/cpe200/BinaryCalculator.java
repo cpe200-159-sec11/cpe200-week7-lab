@@ -3,7 +3,7 @@ package cpe200;
 /**
  * Created by Pattakorn on 27/10/2016.
  */
-public class BinaryCalculator {
+public class BinaryCalculator extends BaseCalculator{
     protected IOperand firstOperand;
     protected IOperand secondOperand;
 
@@ -21,21 +21,21 @@ public class BinaryCalculator {
     public String add() throws RuntimeException {
         int first_op = Integer.parseInt(firstOperand.getOperand(), 2);
         int second_op = Integer.parseInt(secondOperand.getOperand(), 2);
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
+        super.operandCondition(first_op, second_op);
         return Integer.toBinaryString(first_op + second_op);
     }
 
     public String subtract() throws RuntimeException {
         int first_op = Integer.parseInt(firstOperand.getOperand(), 2);
         int second_op = Integer.parseInt(secondOperand.getOperand(), 2);
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
+        super.operandCondition(first_op, second_op);
         return Integer.toBinaryString(first_op - second_op);
     }
 
     public String multiply() throws RuntimeException {
         int first_op = Integer.parseInt(firstOperand.getOperand(), 2);
         int second_op = Integer.parseInt(secondOperand.getOperand(), 2);
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
+        super.operandCondition(first_op, second_op);
         return Integer.toBinaryString(first_op * second_op);
     }
 
@@ -43,15 +43,14 @@ public class BinaryCalculator {
     public String division() throws RuntimeException {
         int first_op = Integer.parseInt(firstOperand.getOperand(), 2);
         int second_op = Integer.parseInt(secondOperand.getOperand(), 2);
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
-        if (first_op == 0 || second_op == 0) throw new ArithmeticException();
-        return Integer.toBinaryString(first_op * second_op);
+        super.operandCondition(first_op, second_op);
+        super.divideByZero(first_op, second_op);
+        return Integer.toBinaryString(first_op / second_op);
     }
-
     public String power() throws RuntimeException {
         int first_op = Integer.parseInt(firstOperand.getOperand(), 2);
         int second_op = Integer.parseInt(secondOperand.getOperand(), 2);
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
-        return Integer.toBinaryString(first_op ^ second_op);
+        super.operandCondition(first_op, second_op);
+        return Integer.toBinaryString((int)Math.pow(first_op, second_op));
     }
 }

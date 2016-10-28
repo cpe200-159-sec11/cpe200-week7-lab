@@ -2,7 +2,7 @@ package cpe200;
 
 import java.text.DecimalFormat;
 
-public class DecimalCalculator {
+public class DecimalCalculator extends BaseCalculator{
     protected IOperand firstOperand;
     protected IOperand secondOperand;
     private DecimalFormat d_format = new DecimalFormat("0.#####");
@@ -19,39 +19,39 @@ public class DecimalCalculator {
     }
 
     public String add() throws RuntimeException {
-        double first_op = Double.valueOf(firstOperand.getOperand());
-        double second_op = Double.valueOf(secondOperand.getOperand());
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
+        double first_op = Double.parseDouble(firstOperand.getOperand());
+        double second_op = Double.parseDouble(secondOperand.getOperand());
+        super.operandCondition(first_op, second_op);
         return String.valueOf(d_format.format(first_op + second_op));
     }
 
     public String subtract() throws RuntimeException {
-        double first_op = Double.valueOf(firstOperand.getOperand());
-        double second_op = Double.valueOf(secondOperand.getOperand());
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
+        double first_op = Double.parseDouble(firstOperand.getOperand());
+        double second_op = Double.parseDouble(secondOperand.getOperand());
+        super.operandCondition(first_op, second_op);
         return String.valueOf(d_format.format(first_op - second_op));
     }
 
     public String multiply() throws RuntimeException {
-        double first_op = Double.valueOf(firstOperand.getOperand());
-        double second_op = Double.valueOf(secondOperand.getOperand());
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
+        double first_op = Double.parseDouble(firstOperand.getOperand());
+        double second_op = Double.parseDouble(secondOperand.getOperand());
+        super.operandCondition(first_op, second_op);
         return String.valueOf(d_format.format(first_op * second_op));
     }
 
     /* This method should throw an exception when divide by zero */
     public String division() throws RuntimeException {
-        double first_op = Double.valueOf(firstOperand.getOperand());
-        double second_op = Double.valueOf(secondOperand.getOperand());
-        if (first_op == 0 || second_op == 0) throw new ArithmeticException();
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
+        double first_op = Double.parseDouble(firstOperand.getOperand());
+        double second_op = Double.parseDouble(secondOperand.getOperand());
+        super.operandCondition(first_op, second_op);
+        super.divideByZero(first_op, second_op);
         return String.valueOf(d_format.format(first_op / second_op));
     }
 
     public String power() throws RuntimeException {
-        double first_op = Double.valueOf(firstOperand.getOperand());
-        double second_op = Double.valueOf(secondOperand.getOperand());
-        if (first_op < 0 || second_op < 0) throw new RuntimeException();
+        double first_op = Double.parseDouble(firstOperand.getOperand());
+        double second_op = Double.parseDouble(secondOperand.getOperand());
+        super.operandCondition(first_op, second_op);
         return String.valueOf(d_format.format(Math.pow(first_op, second_op)));
     }
 
